@@ -4,7 +4,7 @@ pipeline {
     
     tools{
     maven 'Maven-3.6.3'
-    java 'JDK11'
+    hudson.model.JDK 'JDK11'
     }
     
     
