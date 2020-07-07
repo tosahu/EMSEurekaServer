@@ -2,15 +2,21 @@
 pipeline {
     agent any
     
+    tools{
+    maven 'Maven-3.6.3'
+    jdk 'JDK11'
+    }
+    
+    
     stages{
-        stage('Pull Code from Source System'){
-            steps{
-                sh "echo pull" 
-            }
-        }
+        
         stage('Build Code'){
             steps{
-                sh "echo Build"
+                // Run Maven on a Unix agent.
+            sh "mvn -Dmaven.test.failure.ignore=true package"
+
+            // To run Maven on a Windows agent, use
+            // bat "mvn -Dmaven.test.failure.ignore=true package"
             }
         }
         stage('Build Docker image'){
