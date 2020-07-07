@@ -10,7 +10,7 @@ pipeline {
     stages{
     	stage('Pull code from git'){
             steps{
-               git clone 'https://github.com/tosahu/EMSEurekaServer.git'  
+               git 'https://github.com/tosahu/EMSEurekaServer.git'  
             }
         }
         stage('Build Code'){
