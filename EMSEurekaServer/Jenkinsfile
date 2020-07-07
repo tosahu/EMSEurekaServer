@@ -10,9 +10,8 @@ pipeline {
     stages{
         stage('Build Code'){
             steps{
-                // Run Maven on a Unix agent.
-            sh "cd EMSEurekaServer"    
-            sh "mvn -Dmaven.test.failure.ignore=true package"
+                // Run Maven on a Unix agent.  
+            sh "mvn -f EMSEurekaServer\pom.xml -Dmaven.test.failure.ignore=true package"
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true package"
