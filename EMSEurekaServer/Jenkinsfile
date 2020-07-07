@@ -8,11 +8,6 @@ pipeline {
     
     
     stages{
-        stage('Pull code from github repository'){
-            steps{
-               git 'https://github.com/tosahu/EMSEurekaServer.git'
-            }
-        }
         stage('Build Code'){
             steps{
                 // Run Maven on a Unix agent.
