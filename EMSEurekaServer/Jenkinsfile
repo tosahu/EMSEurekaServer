@@ -5,14 +5,17 @@ pipeline {
         
     }
     stages{
-        stage('Pull Code from Source System'){
+        stage('Pull Code from Source System .....'){
             steps{
+                sh "echo pull" 
+                
                 sh "echo pull" 
             }
         }
         stage('Build Code'){
             steps{
                 sh "echo Build"
+                
             }
         }
         stage('Build Docker image'){
@@ -24,6 +27,7 @@ pipeline {
         stage('Push Docker image to docker hub'){
             steps{
                 sh "echo ush Docker image to docker hub"
+                
             }
         }
         
