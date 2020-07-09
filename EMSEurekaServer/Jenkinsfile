@@ -30,8 +30,7 @@ pipeline {
             steps{
                 sh "echo Build Docker image"
                 script{
-                        cd EMSEurekaServer
-                        dockerImage = docker.build registry
+                        dockerImage = docker.build registry -f EMSEurekaServer/Dockerfile
                 }
                 
             }
