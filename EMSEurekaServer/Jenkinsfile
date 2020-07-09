@@ -29,12 +29,12 @@ pipeline {
         stage('Build Docker image'){
             steps{
                 sh "echo Build Docker image"
-                sh "$PWD"
+                sh "pwd"
                dir('EMSEurekaServer'){
-            	sh "$PWD"
+            	sh "pwd"
             	sh "docker build -t sks007/ems-eureka-server ."
           }
-          sh "$PWD"
+          sh "pwd"
                 
                 
             }
