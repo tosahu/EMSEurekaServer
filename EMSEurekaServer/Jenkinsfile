@@ -29,8 +29,9 @@ pipeline {
         stage('Build Docker image'){
             steps{
                 sh "echo Build Docker image"
+                sh "cd EMSEurekaServer"
                 script{
-                        dockerImage = docker.build registry -f EMSEurekaServer/Dockerfile
+                        dockerImage = docker.build registry
                 }
                 
             }
