@@ -6,8 +6,8 @@ pipeline {
     maven 'Maven-3.6.3'
     }
     environment {
-    registry = "sks007/ems-eureka-server"
-    registryCredential = ‘dockerhub’
+    registry = 'sks007/ems-eureka-server'
+    registryCredential = 'dockerhub'
     dockerImage=''
   }
     
