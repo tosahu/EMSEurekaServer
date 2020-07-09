@@ -5,7 +5,11 @@ pipeline {
     tools{
     maven 'Maven-3.6.3'
     }
-    
+    environment {
+    registry = "sks007/ems-eureka-server"
+    registryCredential = ‘dockerhub’
+    dockerImage=''
+  }
     
     stages{
     	stage('Pull code from git'){
@@ -25,12 +29,22 @@ pipeline {
         stage('Build Docker image'){
             steps{
                 sh "echo Build Docker image"
+                script{
+                        cd EMSEurekaServer
+                        dockerImage = docker.build registry
+                }
+                
             }
         }
         
         stage('Push Docker image to docker hub'){
             steps{
                 sh "echo ush Docker image to docker hub"
+                script{
+                docker.withRegistry('',registryCredential){
+                dockerImage.push()
+                }
+                }
             }
         }
         
