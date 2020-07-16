@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: eureka-deployment
+    labels:
+        type: crm-portal
+spec:
+    template:
+        metadata:
+            name: eureka-pod
+            labels:
+                app: eureka
+        spec:
+            containers:
+                - name: eureka-container
+                  image: sks007/ems-eureka-server
+    replicas: 1
+    selector:
+        matchLabels:
+            app: eureka
+    
