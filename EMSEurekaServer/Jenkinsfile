@@ -53,7 +53,7 @@ pipeline {
         		  
         		  sshagent(['kubernetes-client']) {
         		  script{
-            		sh "scp -o StrictHostKeyChecking=no deployment_definition_eureka.yaml,eureka_service_definition.yaml ubuntu@35.154.30.89:/home/ubuntu/"
+            		sh "scp -o StrictHostKeyChecking=no deployment_definition_eureka.yaml eureka_service_definition.yaml ubuntu@35.154.30.89:/home/ubuntu/"
 	   				try{
 	   					  sh "ssh ubuntu@35.154.30.89 kubectl create -f /home/ubuntu/deployment_definition_eureka.yaml"
 	   				}catch(ex){
